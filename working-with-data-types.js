@@ -59,7 +59,24 @@ console.log(NaN == NaN);
 
 //2
 console.log("Part 2")
+var sample = ("Hello Codeup");
 
+console.log(sample.length);
+
+console.log(sample.toUpperCase());
+console.log(sample.toLowerCase());
+
+var students = " Students";
+var samples = sample.concat(students)
+console.log(samples);
+
+var samples = samples.replace("Students", "Class");
+console.log(samples);
+
+console.log(samples.indexOf(c));
+// console.log(samples.indexOf(C)); doesnt work with capital letter
+
+console.log(samples.substring(6,12));
 //3
 console.log("Part 3")
 var price = 3;
