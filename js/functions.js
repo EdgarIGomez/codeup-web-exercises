@@ -9,9 +9,10 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 function sayHello(name) {
-    return console.log("Hello " + name + "!")
+    return ("Hello " + name + "!")
 }
 
+console.log(sayHello("codeup"))
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -21,7 +22,7 @@ function sayHello(name) {
  */
 
 var helloMessage = sayHello("Edgar Gomez")
-
+console.log(helloMessage)
 
 /**
  * TODO:
@@ -32,7 +33,7 @@ var helloMessage = sayHello("Edgar Gomez")
 
 var myName = "Edgar Gomez"
 
-sayHello(myName)
+console.log(sayHello(myName))
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
@@ -56,9 +57,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  */
 
 function isTwo(x) {
-    (x / 2 == 1) ? console.log("true") : console.log("false")
+    return (x === 2)
 }
-isTwo(random)
+
+console.log(isTwo(random))
 
 /**
  * TODO:
@@ -72,10 +74,11 @@ isTwo(random)
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-function calculateTip(tipindecimal, costofMeal){
-    return console.log(tipindecimal * costofMeal)
+function calculateTip(tipindecimal, costofMeal) {
+    return (tipindecimal * costofMeal)
 }
-calculateTip(.15, 33.42)
+
+console.log(calculateTip(.15, 33.42))
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -83,11 +86,11 @@ calculateTip(.15, 33.42)
  * then display the dollar amount they should tip
  */
 
-/*
-var tipindecimal = prompt("What percent would you like to tip?(in decimals")
-var bill = prompt("How much was your bill?")
+
+let tipindecimal = prompt("What percent would you like to tip?(in decimals")
+let bill = prompt("How much was your bill?")
 alert(calculateTip(tipindecimal, bill))
-*/
+
 
 /**
 
@@ -104,7 +107,8 @@ alert(calculateTip(tipindecimal, bill))
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
- function applyDiscount(originalPrice, discountPercent) {
-     return console.log(originalPrice - (originalPrice * discountPercent))
+function applyDiscount(originalPrice, discountPercent) {
+    return console.log(originalPrice - (originalPrice * discountPercent))
 }
+
 applyDiscount(45.99, 0.12)
