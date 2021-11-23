@@ -10,9 +10,9 @@
  */
 function sayHello(name) {
     return ("Hello " + name + "!")
-}
+};
 
-console.log(sayHello("codeup"))
+console.log(sayHello("codeup"));
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -21,8 +21,8 @@ console.log(sayHello("codeup"))
  * console.log 'helloMessage' to check your work
  */
 
-var helloMessage = sayHello("Edgar Gomez")
-console.log(helloMessage)
+var helloMessage = sayHello("Edgar Gomez");
+console.log(helloMessage);
 
 /**
  * TODO:
@@ -31,9 +31,9 @@ console.log(helloMessage)
  * console.
  */
 
-var myName = "Edgar Gomez"
+var myName = "Edgar Gomez";
 
-console.log(sayHello(myName))
+console.log(sayHello(myName));
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
@@ -58,9 +58,9 @@ var random = Math.floor((Math.random() * 3) + 1);
 
 function isTwo(x) {
     return (x === 2)
-}
+};
 
-console.log(isTwo(random))
+console.log(isTwo(random));
 
 /**
  * TODO:
@@ -76,9 +76,9 @@ console.log(isTwo(random))
 
 function calculateTip(tipindecimal, costofMeal) {
     return (tipindecimal * costofMeal)
-}
+};
 
-console.log(calculateTip(.15, 33.42))
+console.log(calculateTip(.15, 33.42));
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -87,9 +87,9 @@ console.log(calculateTip(.15, 33.42))
  */
 
 
-let tipindecimal = prompt("What percent would you like to tip?(in decimals")
-let bill = prompt("How much was your bill?")
-alert(calculateTip(tipindecimal, bill))
+let tipindecimal = prompt("What percent would you like to tip?(in decimals");
+let bill = prompt("How much was your bill?");
+alert("Tip amount is " + calculateTip(tipindecimal, bill));
 
 
 /**
@@ -109,6 +109,6 @@ alert(calculateTip(tipindecimal, bill))
  */
 function applyDiscount(originalPrice, discountPercent) {
     return console.log(originalPrice - (originalPrice * discountPercent))
-}
+};
 
-applyDiscount(45.99, 0.12)
+applyDiscount(45.99, 0.12);
