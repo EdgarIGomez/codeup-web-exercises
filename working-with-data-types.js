@@ -90,7 +90,7 @@ console.log(samples);
 console.log(samples.indexOf("c"));
 console.log(samples.indexOf("C"));
 
-console.log(samples.substring(samples.indexOf("C"),samples.indexOf("p") +1));
+console.log(samples.substring(samples.indexOf("C"), samples.indexOf("p") + 1));
 //3
 console.log("Part 3")
 
@@ -115,11 +115,25 @@ var facebook = 350;
 var paycheck = (6 * google) + (4 * amazon) + (10 * facebook);
 
 console.log(paycheck);
+var classroomnotfull = true
+var fitsschedule = true
+var enrollinclass = (classroomnotfull && fitsschedule)
+if (enrollinclass) {
+    console.log("You're in class")
+} else {
+    console.log("Sorry you didn't make it.")
+}
+var buy2items = true
+var notexpired = true
+var premiummember = false
 
-studentcanjoinclass = classnotfull && fitsherschedule
 
 productofferapplied = (buy2items && notexpired) || (premiummember && notexpired)
-
+if (productofferapplied) {
+    console.log("Here is your offer.")
+} else {
+    "Sorry that isn't available to you."
+}
 //4
 console.log("Part 4")
 
@@ -132,12 +146,14 @@ var passwordlong = password.length >= 5;
 
 console.log(passwordlong)
 
-var usernameinpassword = password !== username
+var usernameinpassword = password.replace(username, " ") == password
 
 console.log(usernameinpassword)
 
-var usernamelength = username.length <= 20
+var usernamelength = (username.length) <= 20
 
 console.log(usernamelength)
 
-var whitespace = (username.indexOf(0) !== " ") && (password.indexOf(0 !== " ")
+var whitespace = ((username.trim() == username) && (password.trim() == password))
+
+console.log(whitespace)

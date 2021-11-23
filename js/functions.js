@@ -83,9 +83,11 @@ calculateTip(.15, 33.42)
  * then display the dollar amount they should tip
  */
 
+/*
 var tipindecimal = prompt("What percent would you like to tip?(in decimals")
 var bill = prompt("How much was your bill?")
 alert(calculateTip(tipindecimal, bill))
+*/
 
 /**
 
