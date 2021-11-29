@@ -162,4 +162,32 @@ alert(calculateTotal(luckyNumber, totalBill))
  */
 var number = confirm("Would you like to enter a number?")
 
-function 
+function yourNumber(number){
+    if (number == true){
+       let enteredNumber = prompt("What number are you entering?")
+
+        return (enteredNumber)
+    }else {
+        return ("That is not a number!")
+    }
+}
+function isOdd(number){
+    if ((number % 2 == 0 ){
+        return ("This number is even!")
+    }else {
+        return("This number is Odd")
+    }
+}
+function plus100(number){
+    return (number + 100)
+}
+
+function isPositive(number){
+    if (number > 0){
+        return("This is a positive number!")
+    }else {
+        return("This is a negative number!")
+    }
+}
+yourNumber(number);
+alert(isOdd())
