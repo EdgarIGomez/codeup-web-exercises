@@ -10,7 +10,7 @@
  */
 function sayHello(name) {
     return ("Hello " + name + "!");
-};
+}
 
 console.log(sayHello("codeup"));
 /**
@@ -58,7 +58,7 @@ var random = Math.floor((Math.random() * 3) + 1);
 
 function isTwo(x) {
     return (x === 2);
-};
+}
 
 console.log(isTwo(random));
 
@@ -74,9 +74,9 @@ console.log(isTwo(random));
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-function calculateTip(tipindecimal, costofMeal) {
-    return (tipindecimal * costofMeal);
-};
+function calculateTip(tipInDecimal, costOfMeal) {
+    return (tipInDecimal * costOfMeal);
+}
 
 console.log(calculateTip(.15, 33.42));
 /**
@@ -109,6 +109,6 @@ alert("Tip amount is " + calculateTip(tipindecimal, bill));
  */
 function applyDiscount(originalPrice, discountPercent) {
     return console.log(originalPrice - (originalPrice * discountPercent));
-};
+}
 
 applyDiscount(45.99, 0.12);

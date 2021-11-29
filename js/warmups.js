@@ -1,3 +1,4 @@
+"use strict";
 // Erstwhile, the legislature determined that being at the bar is not necessary in order to be served, but all the remaining conditions are still valid
 // Change the expression assigned to cashOnHand to make isAtBar optional  while still requiring the remaining values to be true
 
@@ -27,27 +28,37 @@ function shouldYouFly(notCloudy, flightsScheduled) {
 shouldYouFly(true, 10)
 
 
-function addNumbers(x, y){
+function addNumbers(x, y) {
     return (x + y)
 };
 console.log(addNumbers(3, 5));
 
-function subtractNumbers(x, y){
+function subtractNumbers(x, y) {
     return (x - y)
 };
 console.log(subtractNumbers(8, 4));
 
-function multiplyNumbers(x, y){
+function multiplyNumbers(x, y) {
     return (x * y)
 };
 console.log(multiplyNumbers(5, 9));
 
-function divideNumbers(x, y){
+function divideNumbers(x, y) {
     return (x / y)
 };
 console.log(divideNumbers(21, 7));
 
-function remainderNumber(x, y){
+function remainderNumber(x, y) {
     return (x % y)
 };
 console.log(remainderNumber(9, 4));
+
+//November 29th Warmups
+
+function reverseString(string) {
+    let splitString = string.split("");
+    let splitArray = splitString.reverse();
+    let stringAgain = splitArray.join("");
+        return (stringAgain)
+}
+console.log(reverseString("dog"))

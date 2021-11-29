@@ -42,9 +42,9 @@ function analyzeColor(color) {
     }
 }
 
-analyzeColor("blue");
-analyzeColor("red");
-analyzeColor("purple");
+console.log(analyzeColor("blue"));
+console.log(analyzeColor("red"));
+console.log(analyzeColor("purple"));
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -62,6 +62,7 @@ console.log(analyzeColor(randomColor));
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+
 var favoriteColor = prompt("What is your favorite color?")
 switch (favoriteColor) {
     case "blue":
@@ -77,9 +78,10 @@ switch (favoriteColor) {
         alert("Carrots are orange.");
         break;
     default:
-        alert("I don't know anything about " + (color));
+        alert("I don't know anything about " + (favoriteColor));
         break;
 }
+
 
 /**
  * TODO:
@@ -112,7 +114,7 @@ alert(analyzeColor(favoriteColor));
  */
 function calculateTotal(luckyNumber, bill){
     if (luckyNumber == 0){
-        return ((bill))
+        return ("You're bill is " + bill)
     }else if (luckyNumber == 1){
         return ("You're lucky number is 1 and your bill is " + bill + " and your discounted bill is " + (bill - (.1 * bill)))
     } else if (luckyNumber == 2){
@@ -160,25 +162,82 @@ alert(calculateTotal(luckyNumber, totalBill))
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
-var number = confirm("Would you like to enter a number?")
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*if (number === true){
+    let yourNumber = prompt("What is your number?");
+    let isOdd = function(yourNumber){
+        if ((yourNumber % 2 == 0 ){
+            return ("This number is even!")
+        }else {
+            return("This number is Odd")
+        }
+    }  
+    let plus100 = function(yourNumber){
+        return (yourNumber + 100)
+    }
+    let isPositive = function(yourNumber){
+        if (yourNumber > 0){
+            return ("Is positive")
+        }else {
+            return ("Is negative")
+        }
+    }
+    
+}*/
+
+var number = confirm("Would you like to enter a number?");
 function yourNumber(number){
     if (number == true){
        let enteredNumber = prompt("What number are you entering?")
-
-        return (enteredNumber)
+        let numbers = parseInt(enteredNumber)
+        function isOdd(number){
+           if (number % 2 === 0){
+               alert("It is even")
+           } else{
+               alert("It is odd")
+           }
+        }
+        function plus100(number){
+           return alert((number + 100))
+        }
+        function isPositive(number){
+            if (number > 0){
+                alert("It is positive")
+            }else{
+                alert("It is negative")
+            }
+        }
+        isOdd(numbers)
+        plus100(numbers)
+        isPositive(numbers)
     }else {
         return ("That is not a number!")
     }
 }
-function isOdd(number){
-    if ((number % 2 == 0 ){
+yourNumber(number);
+/*function isOdd(number){
+    if (number % 2 == 0 ){
         return ("This number is even!")
     }else {
         return("This number is Odd")
     }
-}
-function plus100(number){
+}*/
+/*function plus100(number){
     return (number + 100)
 }
 
@@ -189,5 +248,5 @@ function isPositive(number){
         return("This is a negative number!")
     }
 }
-yourNumber(number);
-alert(isOdd())
+yourNumber(number);*/
+//alert(isOdd())
