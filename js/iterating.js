@@ -13,6 +13,7 @@
      * array.
      */
     console.log(names.length);
+    console.log("\n")
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
