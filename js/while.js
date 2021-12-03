@@ -6,7 +6,7 @@ while (i < 65536){
 }
 
 var allCones = Math.floor(Math.random() * 50) + 50;
-console.log("I have " + allCones + " many cones");
+console.log("I have " + allCones + " cones");
 do {
     conesSold = Math.floor(Math.random() * 5) + 1;
     console.log(conesSold + " cones was sold");
