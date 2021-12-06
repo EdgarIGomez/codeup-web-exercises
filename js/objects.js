@@ -28,9 +28,9 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
     person.sayHello = function () {
-        console.log("Hello from " + this.firstName + " " + this.lastName + "!")
+        return ("Hello from " + this.firstName + " " + this.lastName + "!")
     }
-    person.sayHello()
+    console.log(person.sayHello());
     console.log("-------")
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -54,27 +54,28 @@
     // console.log(shoppers.length);
     // console.log(shoppers[1].amount) //this is how to get the the specific values in the different objects
     // console.log(shoppers[0].amount)
-    function discountPrice(object) {
-        for (let i = 0; i < object.length; i++) {
-            if (object[i].amount > 200) {
-                let discountedAmount = (object[i].amount - (object[i].amount * .12))
-                 console.log(object[i].name + " your total is " + object[i].amount + " your discounted price is " + discountedAmount);
-            } else {
-                 console.log(object[i].name + " your total is " + object[i].amount + " you do not get a discount sorry.")
-            }
-        }
-    }
-    discountPrice(shoppers);
+    // function discountPrice(object) {
+    //     for (let i = 0; i < object.length; i++) {
+    //         if (object[i].amount > 200) {
+    //             let discountedAmount = (object[i].amount - (object[i].amount * .12))
+    //              console.log(object[i].name + " your total is " + object[i].amount + " your discounted price is " + discountedAmount);
+    //         } else {
+    //              console.log(object[i].name + " your total is " + object[i].amount + " you do not get a discount sorry.")
+    //         }
+    //     }
+    // }
+    // discountPrice(shoppers);
 
-    shoppers.forEach(function(shoppers){
-                    if (shoppers.amount > 200) {
-                        let discountedAmount = (shoppers.amount - (shoppers.amount * .12))
-                         console.log(shoppers.name + " your total is " + shoppers.amount + " your discounted price is " + discountedAmount);
+    shoppers.forEach(function(shopper){
+                    if (shopper.amount > 200) {
+                        let discount = (shopper.amount * .12)
+                        let discountedAmount = (shopper.amount - (shopper.amount * .12));
+                         console.log(shopper.name + " your total is " + shopper.amount + " you got a discount of " + discount + " your discounted price is " + discountedAmount);
                     } else {
-                         console.log(shoppers.name + " your total is " + shoppers.amount + " you do not get a discount sorry.")
+                         console.log(shopper.name + " your total is " + shopper.amount + " you do not get a discount sorry.");
                     }
 
-    })
+    });
 
 
 
@@ -173,17 +174,18 @@
      *      ---
      *      ...
      */
-    function bookInfo(object) {
-        for (let i = 0; i < Object.keys(object).length; i++) {
-            console.log("Book # " + (i + 1));
-            console.log("Title: " + object[i].title);
-            console.log("Author: " + object[i].author.firstName + " " + object[i].author.lastName);
-            console.log("----")
-        }
-    }
+    books.forEach(function(book, index){
+            console.log("Book # " + (index + 1));
+            console.log("Title: " + book.title);
+            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+            console.log("----");
+    });
 
-    bookInfo(books);
 
+    // books.forEach(function(book, index){
+    //     console.log("Book #" + (index + 1) + "\n" + "Title : " + book.title + "\n" + "Author: " + book.author.firstName
+    //         + " " + book.author.lastName + "\n" + "---" );
+    //})
     // console.log(Object.values(books));
     /**
      * Bonus:
@@ -205,8 +207,8 @@
         }
     }
 
-    function showBookInfo(object) {
-        return object.forEach(function (object) {
+    function showBookInfo(objects) {
+        return objects.forEach(function (object) {
             return console.log("Book: " + object.title + " by " + object.author.firstName + " " + object.author.lastName)
         })
     }
