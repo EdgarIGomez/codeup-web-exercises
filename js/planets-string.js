@@ -23,9 +23,14 @@
      * list. You will need an opening AND closing <ul> tags around the entire
      * string, and <li> tags around each planet.
      */
+    var planetsBreak = planetsArray.join("<br>");
     var planetsStringsBreak = planetsArray.join("\n");
-    console.log(planetsStringsBreak); /// Useful so that you can see each seperate part of the string clearly
+    console.log(planetsBreak);
+    console.log(planetsStringsBreak);
+    /// Useful so that you can see each seperate part of the string clearly
   // var planetsInStringForList ="<ul><li>Mercury</li><li>Venus</li><li>Earth</li><li>Mars</li><li>Jupiter</li><li>Saturn</li><li>Uranus</li><li>Neptune</li></ul>"
    // console.log(planetsInStringForList)
-    //I'm taking a break from this one 
+    let planetsInList = planetsArray.join("<li></li>")
+    planetsInList = "<ul><li>" + planetsInList + "</li></ul>"
+    console.log(planetsInList)
 })();
