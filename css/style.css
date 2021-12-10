@@ -1,0 +1,48 @@
+.fancy-header {
+    color: purple;
+    text-decoration: underline;
+}
+
+#topOfPage {
+    text-align: center;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+body {
+    background-color: lightblue;
+    font-family: Papyrus;
+
+}
+
+a:link {
+    color: aliceblue;
+}
+
+a:visited {
+    color: firebrick;
+}
+
+a:hover {
+    color: deepskyblue;
+}
+
+a:active {
+    color: greenyellow;
+}
+
+table tr td {
+    padding: 1px;
+    border: 1px solid black;
+}
+
+li {
+    list-style-type: lower-greek;
+}
+
+body {
+    background-image: url("/img/malte-schmidt-enGr5YbjQKQ-unsplash.jpg");
+    color: lavender;
+}
