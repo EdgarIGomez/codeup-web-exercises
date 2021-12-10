@@ -12,7 +12,7 @@ h2 {
 }
 
 body {
-    background-color: lightblue;
+    background-color: #1e7993;
     font-family: Papyrus;
 
 }
@@ -44,5 +44,10 @@ li {
 
 body {
     background-image: url("/img/malte-schmidt-enGr5YbjQKQ-unsplash.jpg");
+    background-attachment: fixed;
+    color: lavender;
+}
+
+.fancy-header {
     color: lavender;
 }
