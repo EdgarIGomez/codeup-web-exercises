@@ -1,0 +1,29 @@
+#row_one div {
+    border: 2px solid black;
+    background-color: #04bee5;
+}
+
+#row_two div {
+    border: 2px solid black;
+    background-color: #cbffcd;
+}
+
+#row_three div {
+    border: 2px solid black;
+    background-color: #fa9e9e;
+}
+
+#row_four div {
+    border: 2px solid black;
+    background-color: #ff7b7b;
+}
+
+#row_five div {
+    border: 2px solid black;
+    background-color: #0fb784;
+}
+
+#row_six div {
+    border: 2px solid black;
+    background-color: gold;
+}
