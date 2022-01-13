@@ -26,6 +26,9 @@
 </p>
 <button id="change-header">Change Header</button>
 <button id="change-subheader">Change SubHeader</button>
+<button id="change-list-gray">Change Even List</button>
+<button id="change-dbid-1">Change dbId 1</button>
+<button id="change-sub-paragraph">Change Sub Paragraph</button>
 <script>
   (function() {
     "use strict";
@@ -53,23 +56,40 @@
       let dbId = listItems[i].getAttribute("data-dbid");
       console.log(dbId);}
     // TODO: Set text color on every other list item to grey
-      for(let i = 0; i < listItems.length; i++){
+      let listGray = function() {
+        for(let i = 0; i < listItems.length; i++){
         let dbId = listItems[i].getAttribute("data-dbid");
         if(dbId % 2 === 0){
            listItems[i].style.color = "#999999"
         } else{
         }
+        }
       }
     // TODO: Set text color of li with dbid = 1 to blue
-    listItems[0].style.color = "#0000FF"
+    // listItems[0].style.color = "#0000FF"
+    let changeBlue = function() {
+        for(let i = 0; i < listItems.length; i++) {
+          let dbId = listItems[i].getAttribute("data-dbid");
+          if (dbId === "1") {
+            listItems[i].style.color = "#0000FF"
+          } else {
+
+          }
+        }
+    }
     // TODO: Uncomment the next line and get all elements with class name sub-paragraph
     let subParagraphs = document.getElementsByClassName("sub-paragraph");
       console.log(subParagraphs[0])
     // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-    subParagraphs[0].innerHTML = "Mission Accomplished!"
+    let changeSubParagraph = function() {
+        subParagraphs[0].innerHTML = "Mission Accomplished!"
+    }
 
     document.getElementById("change-header").addEventListener("click", changedHeader);
     document.getElementById("change-subheader").addEventListener("click", changeSubHeader);
+    document.getElementById("change-list-gray").addEventListener("click", listGray)
+    document.getElementById("change-dbid-1").addEventListener("click", changeBlue)
+    document.getElementById("change-sub-paragraph").addEventListener("click", changeSubParagraph)
   })();
 </script>
 </body>
