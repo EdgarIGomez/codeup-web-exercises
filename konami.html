@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+
+<h1>Konami Code</h1>
+<section style="height: 400px; width: 800px"></section>
+
+<script src="/js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    let code = []
+    let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13]
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+        if((event.keyCode) !== 13){
+            return code.push(event.keyCode)
+        } else {
+         code.push(event.keyCode)
+            if((JSON.stringify(code)) === (JSON.stringify(konamiCode))) {
+                alert("You have added 30 more lives!!")
+                $("h1").html("Game Start")
+                return $("section").css({"background-image": "url(img/Contra1.webp", "background-repeat": "no-repeat"})
+            } else {
+                code = []
+                return alert("Wrong Code")
+            }
+        }
+
+    });
+</script>
+</body>
+</html>
