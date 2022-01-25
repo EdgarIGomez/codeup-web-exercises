@@ -2,34 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>JQuery Faq</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="css/jquery_faq.css">
 </head>
 <body>
     <h1>National Parks</h1>
     <dl>
-        <dt>Grand Canyon</dt>
-        <dd class="invisible">A village of 208 people live in there.</dd>
-        <dt>Great Sand Dunes</dt>
-        <dd class="invisible">Has the tallest sand dunes in North America which also sing!</dd>
-        <dt>Yosemite National Park</dt>
-        <dd class="invisible">Has a waterfall that while looked at the golden hour looks like lava</dd>
-        <dt>Congaree National Park</dt>
-        <dd class="invisible">During early summer fireflies put on a light show by lighting up at the same time</dd>
-        <dt>Yellowstone National Park</dt>
-        <dd class="invisible">The hot springs here are so acidic they can dissolve a body</dd>
-        <dt>White Sands National Park</dt>
-        <dd class="invisible">The white sand is actually an illusion it's actually a gypsum dune field.</dd>
-        <dt>Carlsbad Caverns National Park</dt>
-        <dd class="invisible">This national park has a deep cave system that even has a builtin lunchroom 750 ft underground</dd>
-        <dt>Canyonlands National Park</dt>
-        <dd class="invisible">Key scenes from the movie Thelma and Louise were filmed here.</dd>
-        <dt>Death Valley National Park</dt>
-        <dd class="invisible">Death Valley is the hottest place on the planet</dd>
-        <dt>Black Canyon National Park</dt>
-        <dd class="invisible">Black Canyon is so deep that sunlight only reaches the bottom of it for only 33 minutes a day.</dd>
+        <dt>The most popular national park in the US?</dt>
+        <dd class="invisible">Grand Canyon</dd>
+        <dt>Has the tallest sand dunes in North America which also sing?</dt>
+        <dd class="invisible">Great Sand Dunes</dd>
+        <dt>Has a waterfall that while looked at the golden hour looks like lava</dt>
+        <dd class="invisible">Yosemite National Park</dd>
+        <dt>During early summer fireflies put on a light show by lighting up at the same time</dt>
+        <dd class="invisible">Congaree National Park</dd>
+        <dt>The hot springs here are so acidic they can dissolve a body</dt>
+        <dd class="invisible">Yellowstone National Park</dd>
+        <dt>The white sand is actually an illusion it's actually a gypsum dune field.</dt>
+        <dd class="invisible">White Sands National Park</dd>
+        <dt>This national park has a deep cave system that even has a builtin lunchroom 750 ft underground</dt>
+        <dd class="invisible">Carlsbad Caverns National Park</dd>
+        <dt>Key scenes from the movie Thelma and Louise were filmed here.</dt>
+        <dd class="invisible">Canyonlands National Park</dd>
+        <dt>Death Valley is the hottest place on the planet</dt>
+        <dd class="invisible">Death Valley National Park</dd>
+        <dt>Black Canyon is so deep that sunlight only reaches the bottom of it for only 33 minutes a day.</dt>
+        <dd class="invisible">Black Canyon National Park</dd>
     </dl>
-    <a href="#">Click here to toggle facts</a>
+    <a href="#">Click here to toggle the National Parks</a>
+    <h3>Grand Canyon</h3>
+    <ul>
+        <li>Is bigger that the state of Rhode Island</li>
+        <li>The Grand Canyon can influence the weather</li>
+        <li>Was carved over some 6 million years</li>
+    </ul>
+    <h3>Death Valley</h3>
+    <ul>
+        <li>Lowest point in North America</li>
+        <li>During spring wildflowers bring life to the desert</li>
+        <li>Some of the rocks move on their own at Death Valley</li>
+    </ul>
+    <h3>White Sands National Park</h3>
+    <ul>
+        <li>"Sand" is not actually white nor does it act like sand</li>
+        <li>You can find Oryx and African species of antelope here</li>
+        <li>White Sands National Park covers a total area of 148,588 acres</li>
+    </ul>
+    <button id="bg-yellow">Turn background of last list Item Yellow</button>
+    <section class="row">
+         <div class="col-4">
+            <div id="first" class="frame vanGogh ">
+<!--                <img src="img/Vicent-Van-Gogh-Starry-Night-Famous-Oil-Paintings-www.shairart.com_.jpg.webp" alt="">-->
+            </div>
+            <button id="buttonOne">Switch</button>
+        </div>
+        <div class="col-4">
+            <div id="second" class="frame oilPainting">
+<!--                <img src="img/81QN4tCofML._AC_SY450_.jpeg" alt="painting">-->
+            </div>
+            <button id="buttonTwo">Switch</button>
+        </div>
+        <div class="col-4">
+            <div id="third" class="frame skyBear">
+<!--                <img src="img/Sky_Bear_2C_T_Paden_2C_lg.jpeg" alt="painting">-->
+            </div>
+            <button id="buttonThree">Switch</button>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 <script src="js/jquery-2.2.4.js"></script>
 <script src="js/jquery_faq.js"></script>
 </body>
