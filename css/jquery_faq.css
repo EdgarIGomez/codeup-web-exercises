@@ -5,3 +5,37 @@
 .highlight {
     background-color: yellow;
 }
+
+.makeBold{
+    font-weight: bold;
+}
+
+.fontBlue {
+    color: blue;
+}
+
+.frame {
+    border: 4px solid saddlebrown;
+}
+
+img {
+    width: 400px;
+}
+
+.vanGogh {
+    background-image: url("../img/Vicent-Van-Gogh-Starry-Night-Famous-Oil-Paintings-www.shairart.com_.jpg.webp");
+    height: 317px;
+    width: 400px;
+}
+
+.oilPainting {
+    background-image: url("../img/81QN4tCofML._AC_SY450_.jpeg");
+    height: 306px;
+    width: 400px;
+}
+
+.skyBear {
+    background-image: url("../img/Sky_Bear_2C_T_Paden_2C_lg.jpeg");
+    height: 281px;
+    width: 400px;
+}

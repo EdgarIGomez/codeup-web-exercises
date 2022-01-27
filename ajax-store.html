@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ajax-store.css">
+</head>
+<body>
+
+<h1 class="text-center col py-5">My Tool Store</h1>
+<section class="container">
+    <div id="products" class="card bg-transparent">
+        <div class="card-header text-center w-100">
+            <div class="row">
+                <div class="col-3">Title</div>
+                <div class="col-3 border-left">Quantity</div>
+                <div class="col-3 border-left">Price</div>
+                <div class="col-3 border-left">Categories</div>
+            </div>
+        </div>
+        <div id="insertProducts" class="card-body text-center w-100">
+
+        </div>
+    </div>
+</section>
+<button id="refresh">Refresh Inventory</button>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+    (function() {
+        "use strict";
+        // TODO: Create an AJAX GET request for the file under data/inventory.json
+        // $.ajax("data/inventory.json").done(function(data, status){
+        //     console.log(data)
+        //     console.log(status)
+        //
+        //     function renderTool(tool) {
+        //         let categories = tool.categories
+        //         let html = '<div class="row">'
+        //             html += '<div class="py-2 col-3 my-1">' + tool.title + '</div>';
+        //         html += '<div class="py-2 col-3 border-left my-1">' + tool.quantity + '</div>';
+        //         html += '<div class="py-2 col-3 border-left my-1">' + tool.price + '</div>';
+        //         html += '<div class="py-2 col-3 border-left my-1">' + categories.join(", ") + '</div>';
+        //         html += '</div>'
+        //         return html;
+        //     }
+        //
+        //     function renderTools(tools) {
+        //         let html = '';
+        //         for (let i = 0; i < tools.length; i++) {
+        //             html += renderTool(tools[i]);
+        //         }
+        //         return html;
+        //
+        //     }
+        //     $("#insertProducts").html(renderTools(data))
+        // })
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+        $("#refresh").click(function(){
+            $.ajax("data/inventory.json").done(function(data, status){
+                console.log(data)
+                console.log(status)
+
+                function renderTool(tool) {
+                    let categories = tool.categories
+                    let html = '<div class="row">'
+                    html += '<div class="py-2 col-3 my-1">' + tool.title + '</div>';
+                    html += '<div class="py-2 col-3 border-left my-1">' + tool.quantity + '</div>';
+                    html += '<div class="py-2 col-3 border-left my-1">' + tool.price + '</div>';
+                    html += '<div class="py-2 col-3 border-left my-1">' + categories.join(", ") + '</div>';
+                    html += '</div>'
+                    return html;
+                }
+
+                function renderTools(tools) {
+                    let html = '';
+                    for (let i = 0; i < tools.length; i++) {
+                        html += renderTool(tools[i]);
+                    }
+                    return html;
+
+                }
+                $("#insertProducts").html(renderTools(data))
+            })
+        })
+    })();
+</script>
+
+</body>
+</html>
