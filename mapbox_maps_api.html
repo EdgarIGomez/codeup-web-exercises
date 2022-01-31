@@ -22,13 +22,6 @@
 <h2>Nama Ramen</h2>
 <div id='map' class="map"></div>
 <br>
-<br>
-<h2>La Panaderia</h2>
-<div id="map2" class="map"></div>
-<br>
-<br>
-<h2>Chama Guacha</h2>
-<div id="map3" class="map"></div>
 <label for="zoom">Choose what level of zoom in you want:</label>
 <select name="zoom" id="zoom">
     <option value="5">5</option>
@@ -43,6 +36,16 @@
 <label for="address">What address are you looking for?</label>
 <input type="text" name="address" id="address">
 <button id="addressButton">Search Address</button>
+<br>
+<button id="hideMarkers">Hide Markers</button>
+<br>
+<h2>La Panaderia</h2>
+<div id="map2" class="map"></div>
+<br>
+<br>
+<h2>Chama Guacha</h2>
+<div id="map3" class="map"></div>
+
 <!-- Mapbox JS -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
@@ -50,6 +53,7 @@
 <script src="js/Keys.js"></script>
 <!-- Custom JS -->
 <script>
+    //creates map
     mapboxgl.accessToken = MAPBOX_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map',
@@ -76,6 +80,7 @@
     //     zoom: 10,
     //     center: [-98.49774, 29.61026]
     // });
+    //array of object restaurants
     let favoriteRestaurants = [
         {
             name: "Nama Ramen",
@@ -105,6 +110,7 @@
     //     .setHTML("<p>Nama Ramen</p>")
     //     // .addTo(map)
     // // marker.setPopup(namaRamenPopup)
+    //adding markers and popups using forEach loop
     favoriteRestaurants.forEach(function(restaurants){
         var marker = new mapboxgl.Marker()
             .setLngLat([restaurants.longitude, restaurants.latitude])
@@ -117,11 +123,13 @@
             marker.setPopup(popup)
         // console.log(restaurants.longitude);
     });
+    //for zooming in
     $("#zoomButton").click(function(){
         let zoomLevel = $("#zoom").val();
         // console.log(zoomLevel);
         map.setZoom(zoomLevel);
     });
+    //To go to inputted address
     $("#addressButton").click(function(){
         let address = $("#address").val();
         console.log(address);
@@ -129,6 +137,10 @@
             console.log(result);
             map.setCenter(result);
         });
+    });
+    //Hiding Markers
+    $("#hideMarkers").click(function(){
+        $(".mapboxgl-marker").toggle()
     });
 </script>
 </body>
