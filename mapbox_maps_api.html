@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Mapbox Map</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        .map {
+            /* the width and height may be set to any size */
+            width: 500px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My Favorite Restaurants </h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<h2>Nama Ramen</h2>
+<div id='map' class="map"></div>
+<br>
+<br>
+<h2>La Panaderia</h2>
+<div id="map2" class="map"></div>
+<br>
+<br>
+<h2>Chama Guacha</h2>
+<div id="map3" class="map"></div>
+<label for="zoom">Choose what level of zoom in you want:</label>
+<select name="zoom" id="zoom">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="18">18(default)</option>
+    <option value="20">20</option>
+</select>
+<button id="zoomButton">Set Zoom</button>
+<br>
+<br>
+<label for="address">What address are you looking for?</label>
+<input type="text" name="address" id="address">
+<button id="addressButton">Search Address</button>
+<!-- Mapbox JS -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="js/Keys.js"></script>
+<!-- Custom JS -->
+<script>
+    mapboxgl.accessToken = MAPBOX_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.615345, 29.553315]
+    });
+
+    // geocode("301 E Houston St, San Antonio, TX 78205", MAPBOX_TOKEN).then(function(result) {
+    //     console.log(result);
+    //     map.setCenter(result);
+    //     // map.setZoom(19);
+    // });
+    // var mapTwo = new mapboxgl.Map({
+    //     container: 'map2',
+    //     style: 'mapbox://styles/mapbox/streets-v9',
+    //     zoom: 10,
+    //     center: [-98.615345, 29.426615]
+    // });
+    //
+    // var mapThree = new mapboxgl.Map({
+    //     container: 'map3',
+    //     style: 'mapbox://styles/mapbox/streets-v9',
+    //     zoom: 10,
+    //     center: [-98.49774, 29.61026]
+    // });
+    let favoriteRestaurants = [
+        {
+            name: "Nama Ramen",
+            longitude: -98.615345,
+            latitude: 29.553315,
+            favorite: "Ramen was good and hot and the takoyaki was delicious!"
+        },
+        {
+            name: "Chama Gaucha",
+            longitude: -98.49774,
+            latitude: 29.61026,
+            favorite: "Meat was really good and flavorful!"
+        },
+        {
+            name: "La Panaderia Bakery Cafe",
+            longitude: -98.489567,
+            latitude: 29.426615,
+            favorite: "The sandwiches with the campenchana soup with the sweet pastries is amazing!"
+        }
+    ]
+    map.setZoom(18)
+    // var marker = new mapboxgl.Marker()
+    //     .setLngLat([-98.615345, 29.553315])
+    //     .addTo(map);
+    // var popup = new mapboxgl.Popup()
+    //     // .setLngLat([-98.615345, 29.553315])
+    //     .setHTML("<p>Nama Ramen</p>")
+    //     // .addTo(map)
+    // // marker.setPopup(namaRamenPopup)
+    favoriteRestaurants.forEach(function(restaurants){
+        var marker = new mapboxgl.Marker()
+            .setLngLat([restaurants.longitude, restaurants.latitude])
+            .addTo(map);
+
+        var popup = new mapboxgl.Popup()
+            // .setLngLat([restaurants.longitude, restaurants.latitude])
+            .setHTML(`<p>${restaurants.name}</p><p>${restaurants.favorite}</p>`)
+         // .addTo(map)
+            marker.setPopup(popup)
+        // console.log(restaurants.longitude);
+    });
+    $("#zoomButton").click(function(){
+        let zoomLevel = $("#zoom").val();
+        // console.log(zoomLevel);
+        map.setZoom(zoomLevel);
+    });
+    $("#addressButton").click(function(){
+        let address = $("#address").val();
+        console.log(address);
+        geocode(address, MAPBOX_TOKEN).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+        });
+    });
+</script>
+</body>
+</html>
