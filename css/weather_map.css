@@ -1,0 +1,22 @@
+body {
+    background-color: #e1e5ee;
+}
+
+#header {
+    background-color: lightskyblue;
+}
+
+button {
+    background-color: lightskyblue;
+}
+.card-header {
+    background-color: lightskyblue;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+
+
