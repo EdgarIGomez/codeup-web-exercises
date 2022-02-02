@@ -17,10 +17,10 @@ function geocode(search, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
-        .then(function(res) {
+        .then(function (res) {
             return res.json();
             // to get all the data from the request, comment out the following three lines...
-        }).then(function(data) {
+        }).then(function (data) {
             return data.features[0].center;
         });
 }
@@ -43,11 +43,11 @@ function reverseGeocode(coordinates, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
-        .then(function(res) {
+        .then(function (res) {
             return res.json();
         })
         // to get all the data from the request, comment out the following three lines...
-        .then(function(data) {
+        .then(function (data) {
             console.log(data.features);
             // return data.features[0].place_name;
             return data.features;
@@ -55,7 +55,7 @@ function reverseGeocode(coordinates, token) {
 }
 
 function placeMarkerAndPopup(info, token, map) {
-    geocode(info.address, token).then(function(coordinates) {
+    geocode(info.address, token).then(function (coordinates) {
         var popup = new mapboxgl.Popup()
             .setHTML(info.popupHTML);
         var marker = new mapboxgl.Marker()

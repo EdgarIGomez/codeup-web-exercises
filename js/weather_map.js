@@ -20,10 +20,11 @@
 //     console.log(data)
 // });
 //% day Weather Forecast
-$.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${29.426615}&lon=${-98.489567}&exclude=hourly,minutely&appid=${WEATHERMAP_TOKEN}&units=imperial`).done(function(data){
+//Initial weather forecast info
+$.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${29.426615}&lon=${-98.489567}&exclude=hourly,minutely&appid=${WEATHERMAP_TOKEN}&units=imperial`).done(function (data) {
     console.log(data);
-    console.log(typeof(data));
-    for(let i = 0; i < 5; i++){
+    console.log(typeof (data));
+    for (let i = 0; i < 5; i++) {
         let today = data.daily[i]
         let date = new Date(today.dt * 1000);
         // console.log(date);
@@ -63,33 +64,54 @@ let marker = new mapboxgl.Marker({
     .addTo(map);
 
 
-
-
-
+/// Dragging marker
 function onDragEnd() {
     const lngLat = marker.getLngLat();
     console.log(lngLat)
     let place = reverseGeocode(lngLat, MAPBOX_TOKEN)
     // console.log(place)
-    function city(){
-        place.then(function(a){
+    //Getting city from dragging marker and placing it somewhere
+    function city() {
+        place.then(function (a) {
             console.log(a)
-            a.forEach(function(a){
-                // let placeType = ['place']
-                console.log(a.place_type)
-                if(a.place_type[0] === 'place'){
-                    console.log(a.place_name)
-                    $("#currentCity").empty()
-                    return $("#currentCity").append(a.place_name)
-                }else {
+            //For loop had to be used so that we can break out of loop with return
+            for (let i = 0; i < a.length; i++) {
+                console.log(a[i].place_type)
+                let currentCity = $("#currentCity")
+                if (a[i].place_type[0] === 'place') {
+                    console.log(a[i].place_name)
+                    currentCity.empty()
+                    return currentCity.append(a[i].place_name)
+                } else if (a[i].place_type[0] === 'region') {
+                    currentCity.empty()
+                    return currentCity.append(a[i].place_name)
+                } else {
 
                 }
-            })
+            }
+            //Cannot break out of loop with return
+            // a.forEach(function(a){
+            //     // let placeType = ['place']
+            //     console.log(a.place_type)
+            //     let currentCity = $("#currentCity")
+            //     if(a.place_type[0] === 'place'){
+            //         console.log(a.place_name)
+            //         currentCity.empty()
+            //         return currentCity.append(a.place_name)
+            //     }else if(a.place_type[0] === 'region'){
+            //         currentCity.empty()
+            //         return currentCity.append(a.place_name)
+            //     }else {
+            //
+            //     }
+            // })
         })
     }
+
     city()
     // console.log(city())
-    $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lngLat.lat}&lon=${lngLat.lng}&exclude=hourly,minutely&appid=${WEATHERMAP_TOKEN}&units=imperial`).done(function(data) {
+    //Getting weather details for the area thw marker was dropped on the map
+    $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lngLat.lat}&lon=${lngLat.lng}&exclude=hourly,minutely&appid=${WEATHERMAP_TOKEN}&units=imperial`).done(function (data) {
         console.log(data);
         console.log(typeof (data));
         $("#weatherRow").empty()
@@ -115,13 +137,14 @@ function onDragEnd() {
 
         }
     });
-    }
-marker.on('dragend', onDragEnd);
+}
 
-$("#addressButton").click(function(){
+marker.on('dragend', onDragEnd);
+///Putting in location manually typing it by adding an event to the button
+$("#addressButton").click(function () {
     let address = $("#address").val();
     console.log(address);
-    geocode(address, MAPBOX_TOKEN).then(function(result) {
+    geocode(address, MAPBOX_TOKEN).then(function (result) {
         console.log(result);
         // map.setCenter(result);
         map.flyTo({
@@ -129,28 +152,53 @@ $("#addressButton").click(function(){
             essential: true // this animation is considered essential with respect to prefers-reduced-motion
 
         });
-            marker.setLngLat([result[0], result[1]])
+        //giving marker new lng and lat for it to display in the new area
+        marker.setLngLat([result[0], result[1]])
         console.log(marker._lngLat.lng);
+        //Getting city name for current city div from coordinates from inputting name of place
         let place = reverseGeocode(marker._lngLat, MAPBOX_TOKEN)
+
         // console.log(place)
-        function city(){
-            place.then(function(a){
+        function city() {
+            place.then(function (a) {
                 console.log(a)
-                a.forEach(function(a){
-                    // let placeType = ['place']
-                    console.log(a.place_type)
-                    if(a.place_type[0] === 'place'){
-                        console.log(a.place_name)
-                        $("#currentCity").empty()
-                        return $("#currentCity").append(a.place_name)
-                    }else {
+                //For loop had to be used so that we can break out of loop with return
+                for (let i = 0; i < a.length; i++) {
+                    console.log(a[i].place_type)
+                    let currentCity = $("#currentCity")
+                    if (a[i].place_type[0] === 'place') {
+                        console.log(a[i].place_name)
+                        currentCity.empty()
+                        return currentCity.append(a[i].place_name)
+                    } else if (a[i].place_type[0] === 'region') {
+                        currentCity.empty()
+                        return currentCity.append(a[i].place_name)
+                    } else {
 
                     }
-                })
+                }
+                //for each doesn't stop even with return so could not be used
+                // a.forEach(function(a){
+                //     // let placeType = ['place']
+                //     console.log(a.place_type)
+                //     let currentCity = $("#currentCity")
+                //     if(a.place_type[0] === 'place'){
+                //         console.log(a.place_name)
+                //         currentCity.empty()
+                //         return currentCity.append(a.place_name)
+                //     }else if(a.place_type[0] === 'region') {
+                //         currentCity.empty()
+                //         return currentCity.append(a.place_name)
+                //     }else {
+                //
+                //     }
+                // })
             })
         }
+
         city()
-        $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${result[1]}&lon=${result[0]}&exclude=hourly,minutely&appid=${WEATHERMAP_TOKEN}&units=imperial`).done(function(data) {
+        //Getting new weather details for when someplace is typed in the input bar
+        $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${result[1]}&lon=${result[0]}&exclude=hourly,minutely&appid=${WEATHERMAP_TOKEN}&units=imperial`).done(function (data) {
             console.log(data);
             console.log(typeof (data));
             $("#weatherRow").empty()
@@ -176,4 +224,4 @@ $("#addressButton").click(function(){
             }
         });
     });
-    });
+});
