@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Domine&family=Luxurious+Roman&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/weather_map.css">
 </head>
 <body class="pb-3">
@@ -18,11 +21,15 @@
 </div>
 <br>
 <div class="container">
-    <div>
-        <label for="address">Place</label>
-        <input type="text" name="address" id="address">
-        <button id="addressButton">Get Weather</button>
+    <div class="d-flex justify-content-between">
+        <div>
+            <label for="address">Place</label>
+            <input type="text" name="address" id="address">
+            <button id="addressButton">Get Weather</button>
+        </div>
+        <button id="switchWeather">Switch Weather</button>
     </div>
+
     <br>
     <div class="row" id="weatherRow">
         <!--        <div class="col card">-->
